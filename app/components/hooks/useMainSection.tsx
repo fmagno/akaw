@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router'
 import useWarnings from './useWarnings'
 import useMeteos from './useMeteo'
-import { Meteo, Warning } from '@/app/tools/clients/ipma/interface'
+import { Meteo, Sea, Warning } from '@/app/tools/clients/ipma/interface'
+import useSeas from './useSea'
 
 export type UseMainSectionHook = {
   warnings: {
@@ -14,9 +15,12 @@ export type UseMainSectionHook = {
     error: any | null
     isValidating: boolean | null
   }
+  seas: {
+    data: Sea[] | null | undefined
+    error: any | null
+    isValidating: boolean | null
+  }
 }
-
-interface MainSectionData {}
 
 function useMainSection(): UseMainSectionHook {
   const {
@@ -24,13 +28,14 @@ function useMainSection(): UseMainSectionHook {
     error: errorWarnings,
     isValidating: isValidatingWarnings,
   } = useWarnings()
+
   const {
     meteos,
     error: errorMeteos,
     isValidating: isValidatingMeteos,
   } = useMeteos()
 
-  console.log(meteos)
+  const { seas, error: errorSeas, isValidating: isValidatingSeas } = useSeas()
 
   return {
     warnings: {
@@ -42,6 +47,11 @@ function useMainSection(): UseMainSectionHook {
       data: meteos,
       error: errorMeteos,
       isValidating: isValidatingMeteos,
+    },
+    seas: {
+      data: seas,
+      error: errorSeas,
+      isValidating: isValidatingSeas,
     },
   }
 }

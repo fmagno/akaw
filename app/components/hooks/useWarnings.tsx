@@ -14,11 +14,7 @@ export type UseWarningsHook = {
 }
 
 function useWarnings(): UseWarningsHook {
-  const {
-    data: dataWarnings,
-    error: errorWarnings,
-    isValidating: isValidatingWarnings,
-  } = useSWR(
+  const { data, error, isValidating } = useSWR(
     {
       url: WARNINGS_URL,
       args: {},
@@ -29,23 +25,20 @@ function useWarnings(): UseWarningsHook {
     },
   )
 
-  if (dataWarnings) {
-    const warnings_faro = dataWarnings.filter((warning) => {
+  let warns = data
+
+  if (warns) {
+    warns = data?.filter((warning) => {
       return (
         warning.idAreaAviso === 'FAR' && warning.awarenessLevelID !== 'green'
       )
     })
-    return {
-      warnings: warnings_faro,
-      error: errorWarnings,
-      isValidating: isValidatingWarnings,
-    }
   }
 
   return {
-    warnings: dataWarnings,
-    error: errorWarnings,
-    isValidating: isValidatingWarnings,
+    warnings: warns,
+    error,
+    isValidating,
   }
 }
 

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import { REFRESH_INTERVAL, METEO_URL } from '@/app/tools/clients/ipma/constants'
-import { listMeteos } from '@/app/tools/clients/ipma'
+import { getMeteos } from '@/app/tools/clients/ipma'
 import { Meteo } from '@/app/tools/clients/ipma/interface'
 
 export type UseMeteosHook = {
@@ -20,7 +20,7 @@ function useMeteos(): UseMeteosHook {
       url: METEO_URL,
       args: {},
     },
-    listMeteos,
+    getMeteos,
     {
       refreshInterval: REFRESH_INTERVAL,
     },
