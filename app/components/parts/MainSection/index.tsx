@@ -2,6 +2,7 @@ import React from 'react'
 import Warnings from './warnings'
 import Meteos from './meteos'
 import Seas from './seas'
+import Uvs from './uvs'
 
 type Props = {}
 
@@ -11,6 +12,7 @@ function MainSection({}: Props) {
       <Warnings />
       <Meteos />
       <Seas />
+      <Uvs />
     </div>
   )
 

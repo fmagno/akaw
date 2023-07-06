@@ -43,6 +43,7 @@ const OPEN_DATA_BASE_URL = 'https://api.ipma.pt/open-data'
 const WARNINGS_URL = `${OPEN_DATA_BASE_URL}/forecast/warnings/warnings_www.json`
 const METEO_URL = `${OPEN_DATA_BASE_URL}/forecast/meteorology/cities/daily/${FARO_GLOBAL_ID}.json` // globalIdLocal = FAR / Local = Faro / Check: https://api.ipma.pt/open-data/distrits-islands.json
 const SEA_URL_PREFIX = `${OPEN_DATA_BASE_URL}/forecast/oceanography/daily` // concatenate with one of: /hp-daily-sea-forecast-day{0,1,2}.json
+const UV_URL = `https://api.ipma.pt/open-data/forecast/meteorology/uv/uv.json` //https://www.ipma.pt/pt/otempo/prev.uv/
 export {
   WARNINGS_URL,
   METEO_URL,
@@ -51,6 +52,7 @@ export {
   FARO_GLOBAL_ID,
   FARO_SEA_LOCATION,
   FARO_STATION_ID,
+  UV_URL,
 }
 
 // Faro stationId: 1200554

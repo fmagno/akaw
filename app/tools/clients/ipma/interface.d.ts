@@ -105,9 +105,17 @@ interface SeaDay {
   owner: 'IPMA'
 }
 
+interface Uv {
+  idPeriodo: number // e.g 4
+  intervaloHora: string // e.g '12h-16h'
+  data: Date // e.g '2023-07-06'
+  globalIdLocal: number // e.g 3480200
+  iUv: number // e.g '7.2'
+}
+
 interface fetchArgs {
   url: string
   args: {}
 }
 
-export { Warning, Meteo, MeteoDataItem, Sea, SeaDay, fetchArgs }
+export { Warning, Meteo, MeteoDataItem, Sea, SeaDay, Uv, fetchArgs }
