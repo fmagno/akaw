@@ -38,7 +38,7 @@ async function getSeas(getSeasArgs: fetchArgs): Promise<SeaDay[]> {
     fetch(`${url}/hp-daily-sea-forecast-day2.json`),
   ])
 
-  const seas: Sea[] = await Promise.all([
+  const seas: SeaDay[] = await Promise.all([
     responses[0].json(),
     responses[1].json(),
     responses[2].json(),

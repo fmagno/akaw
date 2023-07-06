@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import useWarnings from './useWarnings'
 import useMeteos from './useMeteo'
-import { Meteo, Sea, Warning } from '@/app/tools/clients/ipma/interface'
+import { Meteo, Sea, SeaDay, Warning } from '@/app/tools/clients/ipma/interface'
 import useSeas from './useSea'
 
 export type UseMainSectionHook = {
@@ -16,7 +16,7 @@ export type UseMainSectionHook = {
     isValidating: boolean | null
   }
   seas: {
-    data: Sea[] | null | undefined
+    data: SeaDay[] | null | undefined
     error: any | null
     isValidating: boolean | null
   }
