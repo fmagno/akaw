@@ -21,7 +21,7 @@ interface MeteoDataItem {
   tMax: number // e.g '36.2'
   predWindDir: 'N' | 'NE' | 'E' | 'SE' | 'S' | 'SW' | 'W' | 'NW'
   idWeatherType: number // e.g 2: Clear sky | 3: Partly cloudy | etc... | check: https://api.ipma.pt/open-data/weather-type-classe.json
-  classWindSpeed: -99 | 1 | 2 | 3 | 4 // e.g -99: -- | 1: weak | 2: moderate | 3: strong | 4: very strong | check: https://api.ipma.pt/open-data/wind-speed-daily-classe.json
+  classWindSpeed: '-99' | '1' | '2' | '3' | '4' // e.g -99: -- | 1: weak | 2: moderate | 3: strong | 4: very strong | check: https://api.ipma.pt/open-data/wind-speed-daily-classe.json
   longitude: number // e.g '-7.9331'
   latitude: number // e.g '37.0146'
   forecastDate: Date // e.g'2023-07-04'
@@ -66,9 +66,45 @@ interface Uv {
   iUv: number // e.g '7.2'
 }
 
+interface WindSpeedClass {
+  descClassWindSpeedDailyEN: string // e.g 'weak'
+  descClassWindSpeedDailyPT: string // e.g 'fraco'
+  classWindSpeed: string // '1'
+}
+
+interface WindSpeedClasses {
+  owner: 'IPMA'
+  country: 'PT'
+  data: WindSpeedClass[]
+}
+
+interface WeatherTypesItem {
+  descWeatherTypeEN: string // e.g "Partly cloudy"
+  descWeatherTypePT: string // e.g "Céu pouco nublado"
+  idWeatherType: number // e.g 2
+}
+
+interface WeatherTypes {
+  owner: 'IPMA'
+  country: 'PT'
+  data: WeatherTypesItem[]
+}
+
 interface fetchArgs {
   url: string
   args: {}
 }
 
-export { Warning, Meteo, MeteoDataItem, Sea, SeaDay, Uv, fetchArgs }
+export {
+  Warning,
+  Meteo,
+  MeteoDataItem,
+  Sea,
+  SeaDay,
+  Uv,
+  fetchArgs,
+  WindSpeedClasses,
+  WindSpeedClass,
+  WeatherTypes,
+  WeatherTypesItem,
+}

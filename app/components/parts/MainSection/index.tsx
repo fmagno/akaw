@@ -15,8 +15,6 @@ function MainSection({}: Props) {
       <Uvs />
     </div>
   )
-
-  return <div>Loading...</div>
 }
 
 export default MainSection

@@ -1,7 +1,16 @@
 // import { OPEN_DATA_BASE_URL } from './constants'
 // import {} from './interface'
 
-import { Meteo, Sea, SeaDay, Uv, Warning, fetchArgs } from './interface'
+import {
+  Meteo,
+  Sea,
+  SeaDay,
+  Uv,
+  Warning,
+  WeatherTypes,
+  WindSpeedClasses,
+  fetchArgs,
+} from './interface'
 
 async function listWarnings(listWarningsArgs: fetchArgs): Promise<Warning[]> {
   console.log('calling listWarnings...')
@@ -59,4 +68,39 @@ async function getUvs(getUvsArgs: fetchArgs): Promise<Uv[]> {
   return uvs
 }
 
-export { listWarnings, getMeteos, getSeas, getUvs }
+async function getWindSpeedClasses(
+  getWindSpeedClassesArgs: fetchArgs,
+): Promise<WindSpeedClasses> {
+  console.log('calling getWindSpeedClasses...')
+  const {
+    url,
+    args: {},
+  } = getWindSpeedClassesArgs
+
+  const response = await fetch(url)
+  const windSpeedClasses: WindSpeedClasses = await response.json()
+  return windSpeedClasses
+}
+
+async function getWeatherTypes(
+  getWeatherTypesArgs: fetchArgs,
+): Promise<WeatherTypes> {
+  console.log('calling getWeatherTypes...')
+  const {
+    url,
+    args: {},
+  } = getWeatherTypesArgs
+
+  const response = await fetch(url)
+  const weatherTypes: WeatherTypes = await response.json()
+  return weatherTypes
+}
+
+export {
+  listWarnings,
+  getMeteos,
+  getSeas,
+  getUvs,
+  getWindSpeedClasses,
+  getWeatherTypes,
+}

@@ -8,8 +8,6 @@ type Props = {}
 const Seas = (props: Props) => {
   const { seas, error, isValidating } = useSeas()
 
-  console.log('seas:', seas)
-
   return (
     <Fragment>
       <div className="text-4xl text-primary">Seas:</div>
@@ -20,7 +18,7 @@ const Seas = (props: Props) => {
               (sea_location: Sea) =>
                 sea_location.globalIdLocal === FARO_SEA_LOCATION,
             )
-            console.log('sea faro', sea_faro)
+
             return (
               <div key={index} className="px-4">
                 <div className="text-xl text-secondary">

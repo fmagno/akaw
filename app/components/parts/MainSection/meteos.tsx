@@ -1,10 +1,11 @@
 import {
-  Meteo,
-  MeteoDataItem,
-  Warning,
+  Meteo as MeteoClient,
+  MeteoDataItem as MeteoDataItemClient,
+  Warning as WarningClient,
 } from '@/app/tools/clients/ipma/interface'
 import React, { Fragment } from 'react'
 import useMeteos from '../../hooks/useMeteo'
+import { MeteoDataItem } from '../../interface'
 
 type Props = {}
 
@@ -24,7 +25,7 @@ const Meteos = (props: Props) => {
                 </div>
                 <div>classWindSpeed: {meteoItem.classWindSpeed}</div>
                 <div>forecastDate: {meteoItem.forecastDate.toString()}</div>
-                <div>idWeatherType: {meteoItem.idWeatherType}</div>
+                <div>weatherType: {meteoItem.weatherType}</div>
                 <div>latitude: {meteoItem.latitude}</div>
                 <div>longitude: {meteoItem.longitude}</div>
                 <div>precipitaProb: {meteoItem.precipitaProb}</div>
